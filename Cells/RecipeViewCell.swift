@@ -6,12 +6,16 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RecipeViewCell: UICollectionViewCell {
     
+    var viewController = ViewController()
     
-    @IBOutlet weak var drinkTitle: UILabel!
-    @IBOutlet weak var drinkDescription: UILabel!
+
+
+    @IBOutlet weak var cocktailName: UILabel!
+    @IBOutlet weak var instructions: UILabel!
     @IBOutlet weak var ingredient1: UILabel!
     @IBOutlet weak var ingredient2: UILabel!
     @IBOutlet weak var ingredient3: UILabel!
@@ -22,16 +26,28 @@ class RecipeViewCell: UICollectionViewCell {
     @IBOutlet weak var measurement3: UILabel!
     @IBOutlet weak var measurement4: UILabel!
     @IBOutlet weak var measurement5: UILabel!
-    
-    
-    
-    
-    
+    @IBOutlet weak var cocktailImage: UIImageView!
+
+    @IBAction func addToFavorites(_ sender: Any) {
+        print("Button Pressed")
+        if let cocktail = cocktailName.text {
+            let newFavorite = Favorites(context: viewController.context)
+            newFavorite.name = cocktail
+            newFavorite.image = nil
+            do {
+                try viewController.context.save()
+                viewController.fetchFavorites()
+            } catch {
+            
+            }
+        }
+        print(favoritesList)
+    }
     
     
     func setup(with drink: Drinks){
-        drinkTitle.text = drink.strDrink
-        drinkDescription.text = drink.strInstructions
+        cocktailName.text = drink.strDrink
+        instructions.text = drink.strInstructions
         ingredient1.text = drink.strIngredient1 ?? ""
         ingredient2.text = drink.strIngredient2 ?? ""
         ingredient3.text = drink.strIngredient3 ?? ""
@@ -42,5 +58,13 @@ class RecipeViewCell: UICollectionViewCell {
         measurement3.text = drink.strMeasure3 ?? ""
         measurement4.text = drink.strMeasure4 ?? ""
         measurement5.text = drink.strMeasure5 ?? ""
+        
+//            if let urlString = drink.strImageSource {
+//                print(urlString)
+//                let url = URL(string: "https://cdn.luxe.digital/media/2020/06/07192702/best-cocktails-recipe-southside-luxe-digital.jpg")
+//                self.cocktailImage.kf.setImage(with: url)
+//            } else {
+//                return
+//            }
     }
 }

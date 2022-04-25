@@ -11,14 +11,12 @@ import UIKit
 
 struct JSONManager {
     
-    var recipeViewController = RecipeViewController()
     var cocktailURL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
     
-    func fetchCocktailData(_ cocktailName: String, completion: @escaping (Result<CocktailData, Error>) -> ())  {
+    func fetchCocktailData(for cocktailName: String, completion: @escaping (Result<CocktailData, Error>) -> ())  {
         let newCocktailName = cocktailName.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
         let urlString = "\(cocktailURL)\(newCocktailName)"
         performRequest(with: urlString, completion: completion)
-        
     }
     
     func performRequest<T:Decodable>(with urlString: String, completion: @escaping (Result<T, Error>) -> ()) {
