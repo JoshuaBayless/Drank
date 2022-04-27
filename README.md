@@ -8,7 +8,7 @@ quick and easy cocktail recipes
 - searchbar to search any cocktail your heart desires
 - Once you've found a cocktail you really enjoy, you can add it to your favorites!
 
-## Upcoming Deatures and Bug Fixes
+## Upcoming Features and Bug Fixes
 - word wrapping issue with ingredients with longer titles
 - issue with the collection view's contraints
 
