@@ -15,7 +15,7 @@ quick and easy cocktail recipes
 - plan add the ability to rearrange your favorites list
 - plan to add Unsplash API functionaility to pull down images of searched cocktails to fill the recipe views
 
-![Screenshots](screenshot.png)
+![Screenshots](Screenshot.png)
 
 ## Core Tools and Components
 
