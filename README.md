@@ -4,16 +4,16 @@
 quick and easy cocktail recipes
 
 ## Features
-- 10 preset featured cocktails 
+- 10 preset, featured cocktails 
 - searchbar to search any cocktail your heart desires
 - Once you've found a cocktail you really enjoy, you can add it to your favorites!
 
 ## Upcoming Features and Bug Fixes
 - word wrapping issue with ingredients with longer titles
-- issue with the collection view's contraints
+- issue with the collection view's contraints causing cells to not allign properly
 
-- would like to add the ability to rearrange your favorites list
-- would like to add Unsplash API functionaility to pull down images of searched cocktails
+- plan add the ability to rearrange your favorites list
+- plan to add Unsplash API functionaility to pull down images of searched cocktails to fill the recipe views
 
 ![Screenshots](screenshot.png)
 
