@@ -7,6 +7,7 @@ quick and easy cocktail recipes
 - 10 preset, featured cocktails 
 - searchbar to search any cocktail your heart desires
 - Once you've found a cocktail you really enjoy, you can add it to your favorites!
+- Pulldown to search a random cocktail!
 
 ![Screenshots](Screenshot.png)
 
