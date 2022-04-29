@@ -27,6 +27,3 @@ quick and easy cocktail recipes
 
 
 
->This is a companion project to The App Brewery's Complete App Development Bootcamp [www.appbrewery.co](https://www.appbrewery.co/)
-
-
