@@ -13,6 +13,12 @@ struct JSONManager {
     
     var cocktailURL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
     
+    func fetchRandomCocktailData( completion: @escaping (Result<CocktailData, Error>) -> ())  {
+        
+        let urlString = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+        performRequest(with: urlString, completion: completion)
+    }
+    
     func fetchCocktailData(for cocktailName: String, completion: @escaping (Result<CocktailData, Error>) -> ())  {
         let newCocktailName = cocktailName.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
         let urlString = "\(cocktailURL)\(newCocktailName)"

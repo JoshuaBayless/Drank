@@ -15,11 +15,9 @@ class FavoriteCocktailCell: UICollectionViewCell {
     @IBOutlet weak var favoriteCocktailName: UILabel!
     
     func setup(with cocktail: Favorites){
-        if cocktail.image != nil {
-            
-        } else {
-            favoriteCocktailImage.image = #imageLiteral(resourceName: "negroni")
-        }
+        
+            favoriteCocktailImage.image = #imageLiteral(resourceName: "Margarita")
+        
         
         favoriteCocktailName.text = cocktail.name
     }

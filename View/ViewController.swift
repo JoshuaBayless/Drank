@@ -10,17 +10,19 @@ import Kingfisher
 
 
 class ViewController: UIViewController {
-
     
     
-
+    
+    
     @IBOutlet weak var searchTextField: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
     
-    var recipeViewController = RecipeViewController()
+    
     var jsonManager = JSONManager()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let refreshControl = UIRefreshControl()
+    
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,9 +34,14 @@ class ViewController: UIViewController {
         
         fetchFavorites()
         collectionView.reloadData()
+        collectionView.refreshControl = refreshControl
         
         setupLongGestureRecognizerOnCollection()
         
+        refreshControl.endRefreshing()
+        
+        refreshControl.addTarget(self, action: #selector(getRandomCocktail(_:)), for: .valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching Random Cocktail ...")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -46,12 +53,25 @@ class ViewController: UIViewController {
                 }
                 
             }
-
+            
             
         }
     }
-
-
+                             
+    @objc func getRandomCocktail(_ sender: Any) {
+        jsonManager.fetchRandomCocktailData() { result in
+            switch result {
+            case let .success(cocktailData):
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "toRecipes", sender: cocktailData.drinks)
+                }
+                
+            case let .failure(error):
+                print(error)
+            }
+        }
+    }
+    
 }
 
 //MARK: - UISearchBar Delegate
@@ -67,7 +87,7 @@ extension ViewController: UISearchBarDelegate {
                     DispatchQueue.main.async {
                         self.performSegue(withIdentifier: "toRecipes", sender: cocktailData.drinks)
                     }
-
+                    
                 case let .failure(error):
                     print(error)
                 }
@@ -77,8 +97,8 @@ extension ViewController: UISearchBarDelegate {
         
     }
 }
-    
-    
+
+
 //MARK: - Collection View Functions
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -105,12 +125,12 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
             cell.setup(with: favoritesList[indexPath.row])
             return cell
         } else {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeaturedCocktailCell", for: indexPath) as! FeaturedCocktailCell
-        cell.setup(with: cocktails[indexPath.row])
-        return cell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeaturedCocktailCell", for: indexPath) as! FeaturedCocktailCell
+            cell.setup(with: cocktails[indexPath.row])
+            return cell
         }
     }
-
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let flowlayout = collectionViewLayout as? UICollectionViewFlowLayout
@@ -145,7 +165,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
     //MARK: - Section Headers
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-
+        
         if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as? SectionHeader {
             
             if favoritesList.count > 0 && indexPath.section == 0 {
@@ -178,17 +198,17 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
     //MARK: - Managing Favorites (Delete/ Move)
     
     func showAlertButtonTapped(for indexPath: IndexPath) {
-
-            // create the alert
-            let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this recipe from your favorites?", preferredStyle: UIAlertController.Style.alert)
-
-            // add the actions (buttons)
+        
+        // create the alert
+        let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this recipe from your favorites?", preferredStyle: UIAlertController.Style.alert)
+        
+        // add the actions (buttons)
         alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.default, handler: { action in
             self.deleteRecipe(at: indexPath)
         }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     func deleteRecipe(at indexPath: IndexPath) {
         context.delete(favoritesList[indexPath.row])
@@ -198,7 +218,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
         } catch {
             print(error)
         }
-    
+        
         fetchFavorites()
         collectionView.reloadData()
     }
@@ -213,13 +233,13 @@ extension ViewController: UIGestureRecognizerDelegate {
         if (gestureRecognizer.state != .began) {
             return
         }
-
+        
         let p = gestureRecognizer.location(in: collectionView)
-
+        
         if let indexPath = collectionView?.indexPathForItem(at: p) {
             if favoritesList.count > 0 && indexPath.section == 0 {
-            print("Long press at item: \(indexPath.row)")
-            showAlertButtonTapped(for: indexPath)
+                print("Long press at item: \(indexPath.row)")
+                showAlertButtonTapped(for: indexPath)
             } else {
                 return
             }
@@ -228,16 +248,16 @@ extension ViewController: UIGestureRecognizerDelegate {
     
     
     func setupLongGestureRecognizerOnCollection() {
-                let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
-                longPressGesture.minimumPressDuration = 1
-                longPressGesture.delegate = self
-                longPressGesture.delaysTouchesBegan = true
-                collectionView?.addGestureRecognizer(longPressGesture)
-            }
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
+        longPressGesture.minimumPressDuration = 1
+        longPressGesture.delegate = self
+        longPressGesture.delaysTouchesBegan = true
+        collectionView?.addGestureRecognizer(longPressGesture)
+    }
     
     
     
     
 }
-    
+
 

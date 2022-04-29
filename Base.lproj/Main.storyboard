@@ -44,8 +44,7 @@
                                                     <rect key="frame" x="13" y="144" width="125" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
+                                                    <color key="highlightedColor" systemColor="labelColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="apU-is-NfB">
                                                     <rect key="frame" x="2" y="0.0" width="146" height="136"/>
@@ -70,8 +69,7 @@
                                                     <rect key="frame" x="7" y="138" width="125" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
+                                                    <color key="highlightedColor" systemColor="labelColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UEN-Uv-Yc7">
                                                     <rect key="frame" x="2" y="0.0" width="146" height="136"/>
@@ -144,9 +142,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="794"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="negroni-1" translatesAutoresizingMaskIntoConstraints="NO" id="Fjd-Sb-K4N">
-                                                    <rect key="frame" x="90" y="132" width="194" height="225"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqo-im-UWa">
                                                     <rect key="frame" x="157.5" y="371" width="59" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -167,7 +162,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0O-jM-Utb">
-                                                    <rect key="frame" x="90" y="502" width="98" height="21"/>
+                                                    <rect key="frame" x="60" y="502" width="128" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -181,35 +176,35 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingredient 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbK-Ve-AqP">
-                                                    <rect key="frame" x="90" y="531" width="89" height="21"/>
+                                                    <rect key="frame" x="60" y="531" width="119" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
+                                                    <color key="highlightedColor" systemColor="labelColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingredient 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9l-lE-9Zn">
-                                                    <rect key="frame" x="90" y="560" width="92" height="21"/>
+                                                    <rect key="frame" x="60" y="560" width="122" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingredient 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Tu-jB-wEV">
-                                                    <rect key="frame" x="90" y="589" width="92" height="21"/>
+                                                    <rect key="frame" x="60" y="589" width="157" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingredient 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gy-aA-BN7">
-                                                    <rect key="frame" x="90" y="618" width="92" height="21"/>
+                                                    <rect key="frame" x="60" y="618" width="157" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingredient 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gt0-Sf-zgK">
-                                                    <rect key="frame" x="90" y="647" width="92" height="21"/>
+                                                    <rect key="frame" x="60" y="647" width="122" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -260,16 +255,16 @@
                                                         <action selector="addToFavorites:" destination="AKT-5E-F2q" eventType="touchUpInside" id="8df-2c-IO4"/>
                                                     </connections>
                                                 </button>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Vesper-1" translatesAutoresizingMaskIntoConstraints="NO" id="Fjd-Sb-K4N">
+                                                    <rect key="frame" x="86" y="110" width="237" height="253"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="BUU-lT-Eag" firstAttribute="centerX" secondItem="l9q-VD-tBH" secondAttribute="centerX" id="4pc-WS-n4E"/>
                                                 <constraint firstItem="jqo-im-UWa" firstAttribute="top" secondItem="l9q-VD-tBH" secondAttribute="top" constant="371" id="A84-2X-ECh"/>
-                                                <constraint firstItem="Fjd-Sb-K4N" firstAttribute="top" secondItem="l9q-VD-tBH" secondAttribute="top" constant="132" id="Dl6-WU-NCI"/>
-                                                <constraint firstAttribute="trailing" secondItem="Fjd-Sb-K4N" secondAttribute="trailing" constant="90" id="Hkz-SY-BBY"/>
                                                 <constraint firstAttribute="bottom" secondItem="jqo-im-UWa" secondAttribute="bottom" constant="402" id="Ppz-RH-yPt"/>
-                                                <constraint firstAttribute="bottom" secondItem="Fjd-Sb-K4N" secondAttribute="bottom" constant="437" id="d3I-cl-GCo"/>
                                                 <constraint firstAttribute="trailing" secondItem="jqo-im-UWa" secondAttribute="trailing" constant="157.5" id="dYX-x5-5ks"/>
-                                                <constraint firstItem="Fjd-Sb-K4N" firstAttribute="leading" secondItem="l9q-VD-tBH" secondAttribute="leading" constant="90" id="gUx-eV-XCj"/>
                                                 <constraint firstItem="jqo-im-UWa" firstAttribute="leading" secondItem="l9q-VD-tBH" secondAttribute="leading" constant="157.5" id="ifz-S6-5h3"/>
                                                 <constraint firstItem="BUU-lT-Eag" firstAttribute="top" secondItem="l9q-VD-tBH" secondAttribute="top" constant="48" id="pFI-pD-sT0"/>
                                                 <constraint firstAttribute="bottom" secondItem="BUU-lT-Eag" secondAttribute="bottom" constant="709" id="w6k-SS-xRe"/>
@@ -305,7 +300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8kI-Vw-Hpe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1429" y="104"/>
+            <point key="canvasLocation" x="1428.985507246377" y="103.79464285714285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="khk-UE-N6q">
@@ -327,7 +322,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="negroni-1" width="225" height="225"/>
+        <image name="Vesper-1" width="735" height="735"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

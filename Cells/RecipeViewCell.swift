@@ -61,7 +61,7 @@ class RecipeViewCell: UICollectionViewCell {
         
 //            if let urlString = drink.strImageSource {
 //                print(urlString)
-//                let url = URL(string: "https://cdn.luxe.digital/media/2020/06/07192702/best-cocktails-recipe-southside-luxe-digital.jpg")
+//                let url = URL(string: "https://www.thecocktaildb.com/images/media/drink/il9e0r1582478841.jpg")
 //                self.cocktailImage.kf.setImage(with: url)
 //            } else {
 //                return

@@ -12,6 +12,8 @@ import SwiftUI
 class RecipeViewController: UIViewController {
     
     var drinks = [Drinks]()
+    let refreshControl = UIRefreshControl()
+    var jsonManager = JSONManager()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -20,6 +22,10 @@ class RecipeViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        collectionView.refreshControl = refreshControl
+        
+        refreshControl.addTarget(self, action: #selector(getRandomCocktail(_:)), for: .valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching Random Cocktail ...")
     }
 
     
@@ -40,6 +46,23 @@ extension RecipeViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenSize = UIScreen.main.bounds.size
                 return screenSize
+    }
+    
+    @objc func getRandomCocktail(_ sender: Any) {
+        jsonManager.fetchRandomCocktailData() { result in
+            switch result {
+            case let .success(cocktailData):
+                self.drinks = cocktailData.drinks
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                    self.refreshControl.endRefreshing()
+                }
+        
+                
+            case let .failure(error):
+                print(error)
+            }
+        }
     }
     
 }
